@@ -1,0 +1,151 @@
+<header
+    class="site-header fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-white"
+>
+    <nav class="relative mx-auto shadow-md">
+        <ul class="flex h-12 items-center justify-between px-4">
+            <li class="font-bold">
+                Air<span class="text-orange-700">Clean</span>
+            </li>
+            <li class="hidden md:block">
+                <ul class="flex items-center justify-between gap-10 text-sm">
+                    <li
+                        class="transition duration-300 ease-in-out hover:cursor-pointer hover:underline"
+                    >
+                        <a href="#problem">Problem</a>
+                    </li>
+                    <li
+                        class="transition duration-300 ease-in-out hover:cursor-pointer hover:underline"
+                    >
+                        <a href="#health-impact">Health Impact</a>
+                    </li>
+                    <li
+                        class="transition duration-300 ease-in-out hover:cursor-pointer hover:underline"
+                    >
+                        <a href="#ecosystem">Ecosytem</a>
+                    </li>
+                    <li
+                        class="transition duration-300 ease-in-out hover:cursor-pointer hover:underline"
+                    >
+                        <a href="#solutions">Solutions</a>
+                    </li>
+                    <li
+                        class="transition duration-300 ease-in-out hover:cursor-pointer hover:underline"
+                    >
+                        <a href="#resources">Resources</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="hidden md:block text-sm">
+                <button
+                    class="bg-orange-700/75 hover:bg-orange-700 hover:shadow-md text-black hover:text-orange-200 px-3 py-1.5 hover:cursor-pointer rounded-lg text-center hover:scale-105 transition ease-in-out duration-300"
+                >
+                    Take Action
+                </button>
+            </li>
+            <li class="block md:hidden">
+                <button
+                    class="hamburger-menu relative flex h-10 w-10 items-center justify-center"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                >
+                    <span
+                        class="hamburger-line absolute h-0.5 w-6 -translate-y-2 bg-slate-900 transition duration-300"
+                    ></span>
+                    <span
+                        class="hamburger-line absolute h-0.5 w-6 bg-slate-900 transition duration-300"
+                    ></span>
+                    <span
+                        class="hamburger-line absolute h-0.5 w-6 translate-y-2 bg-slate-900 transition duration-300"
+                    ></span>
+                </button>
+            </li>
+        </ul>
+
+        <div
+            id="mobile-menu"
+            class="mobile-menu pointer-events-none absolute left-0 right-0 top-12 max-h-0 overflow-hidden bg-mist-50 px-4 opacity-0 shadow-md transition-all duration-300 ease-out md:hidden"
+        >
+            <ul class="space-y-4 py-4">
+                <li class="hover:cursor-pointer hover:underline">
+                    <a href="#problem" data-mobile-nav-link>Problem</a>
+                </li>
+                <li class="hover:cursor-pointer hover:underline">
+                    <a href="#health-impact" data-mobile-nav-link>
+                        Health Impact
+                    </a>
+                </li>
+                <li class="hover:cursor-pointer hover:underline">
+                    <a href="#ecosystem" data-mobile-nav-link>Ecosytem</a>
+                </li>
+                <li class="hover:cursor-pointer hover:underline">
+                    <a href="#solutions" data-mobile-nav-link>Solutions</a>
+                </li>
+                <li class="hover:cursor-pointer hover:underline">
+                    <a href="#resources" data-mobile-nav-link>Resources</a>
+                </li>
+                <li>
+                    <button
+                        class="w-full bg-orange-700/75 px-3 py-1.5 rounded-lg text-center hover:cursor-pointer"
+                    >
+                        Take Action
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const menuButton = document.querySelector(".hamburger-menu");
+    const mobileMenu = document.querySelector("#mobile-menu");
+    const menuLines = document.querySelectorAll(".hamburger-line");
+    const siteHeader = document.querySelector(".site-header");
+    const mobileNavLinks = document.querySelectorAll("[data-mobile-nav-link]");
+
+    const updateHeaderShadow = () => {
+        siteHeader?.classList.toggle("shadow-xl", window.scrollY > 0);
+    };
+
+    updateHeaderShadow();
+    window.addEventListener("scroll", updateHeaderShadow, { passive: true });
+
+    const setMobileMenuOpen = (nextOpen: boolean) => {
+        if (!menuButton) return;
+
+        menuButton.setAttribute("aria-expanded", String(nextOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            nextOpen ? "Close menu" : "Open menu",
+        );
+
+        mobileMenu?.classList.toggle("pointer-events-none", !nextOpen);
+        mobileMenu?.classList.toggle("max-h-0", !nextOpen);
+        mobileMenu?.classList.toggle("max-h-96", nextOpen);
+        mobileMenu?.classList.toggle("opacity-0", !nextOpen);
+        mobileMenu?.classList.toggle("opacity-100", nextOpen);
+
+        menuLines[0]?.classList.toggle("-translate-y-2", !nextOpen);
+        menuLines[0]?.classList.toggle("translate-y-0", nextOpen);
+        menuLines[0]?.classList.toggle("rotate-45", nextOpen);
+
+        menuLines[1]?.classList.toggle("opacity-0", nextOpen);
+
+        menuLines[2]?.classList.toggle("translate-y-2", !nextOpen);
+        menuLines[2]?.classList.toggle("translate-y-0", nextOpen);
+        menuLines[2]?.classList.toggle("-rotate-45", nextOpen);
+    };
+
+    menuButton?.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+        setMobileMenuOpen(!isOpen);
+    });
+
+    mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            setMobileMenuOpen(false);
+        });
+    });
+</script>
