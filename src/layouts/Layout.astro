@@ -20,13 +20,17 @@ import "../styles/global.css";
             const revealObserver = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
-                        entry.target.classList.toggle(
-                            "is-visible",
-                            entry.isIntersecting,
-                        );
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+
+                            // Stop observing once revealed
+                            revealObserver.unobserve(entry.target);
+                        }
                     });
                 },
-                { threshold: 0.2 },
+                {
+                    threshold: 0.2,
+                },
             );
 
             revealElements.forEach((element) => {
