@@ -1,3 +1,101 @@
-<section id="health-impact" class="h-screen bg-red-100 pt-14 scroll-mt-12">
-    <p class="reveal reveal-up reveal-delay">Health Impact</p>
+<section id="health-impact" class="bg-purple-100 pt-14 scroll-mt-12 px-2">
+    <div
+        class="flex flex-col gap-8 md:gap-10 items-center justify-center pt-14 md:pt-28"
+    >
+        <p
+            class="text-center reveal reveal-up reveal-delay-1 font-highlight text-3xl md:text-5xl font-bold underline-animate"
+        >
+            It's Personal The Human Cost
+        </p>
+        <p
+            class="text-center reveal reveal-up reveal-delay-3 font-highlight text-sm md:text-lg font-bold"
+        >
+            These aren't just statistics. These are parents who won't see their
+            <br class="hidden md:block" />
+            children grow up. Children whose lungs never develop properly.
+            <br class="hidden md:block" />
+            Communities gasping for clean air. Air pollution doesn't just shorten
+            <br class="hidden md:block" />
+            lives it diminishes them.
+        </p>
+        <div class="grid grid-cols-2 gap-2 md:gap-5 mb-20">
+            <div
+                class="border-2 border-bg-violet-100 reveal reveal-up reveal-delay-5 bg-violet-50 inset-shadow-xs hover:-translate-y-2 hover:shadow-sm px-2 py-4 md:px-4 md:py-6 transform transition-transform duration-300"
+            >
+                <div class="text-3xl mb-0.5">🫁</div>
+                <p class="text-lg font-extrabold mb-1">Respiratory Health</p>
+                <ul class="text-sm">
+                    <li>Asthma attacks and worsening</li>
+                    <li>Chronic obstructive pulmonary disease</li>
+                    <li>Reduced lung function in children</li>
+                    <li>Increased coughing and wheezing</li>
+                </ul>
+            </div>
+            <div
+                class="border-2 border-bg-violet-100 reveal reveal-up reveal-delay-7 bg-violet-50 inset-shadow-xs hover:-translate-y-2 hover:shadow-sm px-2 py-4 md:px-4 md:py-6 transform transition-transform duration-300"
+            >
+                <div class="text-3xl mb-0.5">❤️</div>
+                <p class="text-lg font-extrabold mb-1">
+                    Cardiovascular Disease
+                </p>
+                <ul class="text-sm">
+                    <li>Heart attacks and stroke</li>
+                    <li>High blood pressure</li>
+                    <li>Increased inflammation</li>
+                    <li>Reduced heart function</li>
+                </ul>
+            </div>
+            <div
+                class="border-2 border-bg-violet-100 reveal reveal-up reveal-delay-9 bg-violet-50 inset-shadow-xs hover:-translate-y-2 hover:shadow-sm px-2 py-4 md:px-4 md:py-6 transform transition-transform duration-300"
+            >
+                <div class="text-3xl mb-0.5">🧠</div>
+                <p class="text-lg font-extrabold mb-1">Neurological Effects</p>
+                <ul class="text-sm">
+                    <li>Cognitive decline and dementia risk</li>
+                    <li>Behavioral changes in children</li>
+                    <li>Neuroinflammation</li>
+                    <li>Accelerated brain aging</li>
+                </ul>
+            </div>
+            <div
+                class="border-2 border-bg-violet-100 reveal reveal-up reveal-delay-11 bg-violet-50 inset-shadow-xs hover:-translate-y-2 hover:shadow-sm px-2 py-4 md:px-4 md:py-6 transform transition-transform duration-300"
+            >
+                <div class="text-3xl mb-0.5">👶</div>
+                <p class="text-lg font-extrabold mb-1">
+                    Vulnerable Populations
+                </p>
+                <ul class="text-sm">
+                    <li>Low birth weight in newborns</li>
+                    <li>Developmental delays in children</li>
+                    <li>Increased mortality in elderly</li>
+                    <li>Disproportionate impact on poor communities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
+
+<style>
+    .underline-animate {
+        position: relative;
+        display: inline-block;
+    }
+
+    .underline-animate::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 4px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.8s ease;
+    }
+
+    /* Trigger when your IntersectionObserver adds .is-visible */
+    .is-visible.underline-animate::after {
+        transform: scaleX(1);
+    }
+</style>
