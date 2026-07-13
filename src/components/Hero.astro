@@ -1,3 +1,7 @@
+---
+import AdvocacyModal from "./AdvocacyModal.astro";
+---
+
 <section
     id="definition"
     class="h-screen pt-14 bg-mist-50 relative px-2 scroll-mt-12"
@@ -34,17 +38,12 @@
 
         <div class="reveal reveal-up reveal-delay-7 flex gap-2 md:gap-5">
             <button
-                class="text-md bg-orange-700/75 text-white hover:shadow-md px-4 py-2 hover:cursor-pointer rounded-lg text-center hover:scale-105 transition ease-in-out duration-300"
+                class="openAdvocacyModal text-md border border-orange-700/75 hover:shadow-md text-orange-700/75 px-4 py-2 hover:cursor-pointer rounded-lg text-center hover:scale-105 transition ease-in-out duration-300"
             >
-                Learn More
-            </button>
-
-            <button
-                class="text-md border border-orange-700/75 hover:shadow-md text-orange-700/75 px-4 py-2 hover:cursor-pointer rounded-lg text-center hover:scale-105 transition ease-in-out duration-300"
-            >
-                Take Action
+                Join The Movement
             </button>
         </div>
+        <AdvocacyModal />
 
         <div class="grid gap-2 md:gap-6 grid-cols-2 md:grid-cols-3 text-md">
             <div
